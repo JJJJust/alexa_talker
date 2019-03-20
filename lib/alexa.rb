@@ -1,6 +1,6 @@
-require "alexa/version"
+# frozen_string_literal: true
+
+require_relative 'alexa/version'
 
 module Alexa
-    class Error < StandardError; end
-    # Your code goes here...
 end
