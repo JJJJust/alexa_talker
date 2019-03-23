@@ -6,6 +6,7 @@ require_relative 'device'
 require_relative 'request/launch_request'
 require_relative 'request/intent_request'
 require_relative 'request/session_ended_request'
+require_relative 'request/validator'
 
 module Alexa
   class Request
