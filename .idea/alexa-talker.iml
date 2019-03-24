@@ -13,10 +13,7 @@
     <orderEntry type="library" scope="PROVIDED" name="ast (v2.4.0, ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v2.0.1, ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="diff-lcs (v1.3, ruby-2.6.1-p33) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="faraday (v0.15.4, ruby-2.6.1-p33) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="faraday_middleware (v0.13.1, ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jaro_winkler (v1.5.2, ruby-2.6.1-p33) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="multipart-post (v2.0.0, ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parallel (v1.14.0, ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="parser (v2.6.0.0, ruby-2.6.1-p33) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="powerpack (v0.1.2, ruby-2.6.1-p33) [gem]" level="application" />
