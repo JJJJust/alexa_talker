@@ -3,16 +3,16 @@
 require_relative '../request'
 require_relative '../session'
 
-module Alexa
+module AlexaTalker
   class Request
-    class SessionEndedRequest < Alexa::Request
+    class SessionEndedRequest < AlexaTalker::Request
       attr_reader :session
       attr_reader :reason
       attr_reader :error
 
       def initialize(hash)
         super
-        @session = Alexa::Session.new(hash[:session])
+        @session = AlexaTalker::Session.new(hash[:session])
         @reason = hash[:request][:reason]
         @error = hash[:request][:error] if hash[:request][:error]
       end

@@ -6,7 +6,7 @@ require_relative 'dialog/confirm_slot'
 require_relative 'dialog/delegate'
 require_relative 'dialog/elicit_slot'
 
-module Alexa
+module AlexaTalker
   class Response
     module Directive
       module Dialog
@@ -14,7 +14,7 @@ module Alexa
         attr_reader :intent
 
         def intent=(input)
-          raise ArgumentError unless input.is_a?(Alexa::Intent) || input.nil?
+          raise ArgumentError unless input.is_a?(AlexaTalker::Intent) || input.nil?
 
           @intent = input
         end

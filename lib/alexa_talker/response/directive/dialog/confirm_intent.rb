@@ -2,12 +2,12 @@
 
 require_relative '../dialog'
 
-module Alexa
+module AlexaTalker
   class Response
     module Directive
       module Dialog
         class ConfirmIntent
-          include Alexa::Response::Directive::Dialog
+          include AlexaTalker::Response::Directive::Dialog
 
           def initialize
             @type = 'Dialog.ConfirmIntent'

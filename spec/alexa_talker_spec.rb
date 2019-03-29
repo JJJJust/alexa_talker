@@ -1,6 +1,6 @@
-RSpec.describe Alexa do
+RSpec.describe AlexaTalker do
   it "has a version number" do
-    expect(Alexa::VERSION).not_to be nil
+    expect(AlexaTalker::VERSION).not_to be nil
   end
 
   it "does something useful" do

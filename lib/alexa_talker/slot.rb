@@ -2,7 +2,7 @@
 
 require_relative 'slot/resolution'
 
-module Alexa
+module AlexaTalker
   class Slot
     attr_reader :name
     attr_reader :value
@@ -25,7 +25,7 @@ module Alexa
     def resolution_handler(array)
       result = []
       array.each do |hash|
-        result << Alexa::Slot::Resolution.new(hash)
+        result << AlexaTalker::Slot::Resolution.new(hash)
       end
       result
     end

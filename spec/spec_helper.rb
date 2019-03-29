@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "alexa"
+require "alexa_talker"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

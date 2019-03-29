@@ -8,7 +8,7 @@ require_relative 'request/intent_request'
 require_relative 'request/session_ended_request'
 require_relative 'request/validator'
 
-module Alexa
+module AlexaTalker
   class Request
     attr_reader :version
     attr_reader :id
@@ -29,7 +29,7 @@ module Alexa
 
       json_hash = JSON.parse(input, symbolize_names: true)
       request_type = json_hash[:request][:type].to_s
-      Object.const_get('Alexa::Request::' + request_type).new(json_hash)
+      Object.const_get('AlexaTalker::Request::' + request_type).new(json_hash)
     end
 
     private
@@ -45,7 +45,7 @@ module Alexa
       @application_id = system_hash[:application][:applicationId]
       @api_access_token = system_hash[:apiAccessToken]
       @api_endpoint = system_hash[:apiEndpoint]
-      @device = Alexa::Device.new(system_hash[:device])
+      @device = AlexaTalker::Device.new(system_hash[:device])
       @user_id = system_hash[:user][:userId]
       if system_hash[:user][:accessToken]
         @user_access_token = system_hash[:user][:accessToken]

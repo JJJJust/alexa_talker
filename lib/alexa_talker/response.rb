@@ -6,7 +6,7 @@ require_relative 'session'
 require_relative 'card'
 require_relative 'response/directive'
 
-module Alexa
+module AlexaTalker
   class Response
     attr_accessor :version
     attr_reader :session
@@ -24,23 +24,23 @@ module Alexa
     end
 
     def session=(input)
-      raise ArgumentError unless input.is_a?(Alexa::Session) || input.nil?
+      raise ArgumentError unless input.is_a?(AlexaTalker::Session) || input.nil?
 
       @session = input
     end
 
     def speech_output=(input)
-      raise ArgumentError unless input.is_a?(Alexa::Speech) || input.nil?
+      raise ArgumentError unless input.is_a?(AlexaTalker::Speech) || input.nil?
 
       @speech_output = input
     end
 
     def card=(input)
-      raise ArgumentError unless input.is_a?(Alexa::Card) || input.nil?
+      raise ArgumentError unless input.is_a?(AlexaTalker::Card) || input.nil?
     end
 
     def speech_reprompt=(input)
-      raise ArgumentError unless input.is_a?(Alexa::Speech) || input.nil?
+      raise ArgumentError unless input.is_a?(AlexaTalker::Speech) || input.nil?
 
       @speech_reprompt = input
     end

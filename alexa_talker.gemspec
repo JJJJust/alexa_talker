@@ -1,11 +1,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "alexa/version"
+require "alexa_talker/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "alexa-talker"
-  spec.version       = Alexa::VERSION
+  spec.name          = "alexa_talker"
+  spec.version       = AlexaTalker::VERSION
   spec.authors       = ["Justin S. Johnson"]
   spec.summary       = ''
 

@@ -4,9 +4,9 @@ require_relative '../request'
 require_relative '../session'
 require_relative '../intent'
 
-module Alexa
+module AlexaTalker
   class Request
-    class IntentRequest < Alexa::Request
+    class IntentRequest < AlexaTalker::Request
       attr_reader :session
       attr_reader :dialog_state
       attr_reader :confirmation_status
@@ -14,9 +14,9 @@ module Alexa
 
       def initialize(hash)
         super
-        @session = Alexa::Session.new(hash[:session])
+        @session = AlexaTalker::Session.new(hash[:session])
         @dialog_state = hash[:request][:dialogState]
-        @intent = Alexa::Intent.new(hash[:request][:intent])
+        @intent = AlexaTalker::Intent.new(hash[:request][:intent])
       end
     end
   end

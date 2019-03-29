@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Alexa
+module AlexaTalker
   class Card
     attr_reader :type
     attr_accessor :title

@@ -2,7 +2,7 @@
 
 require_relative 'directive/dialog'
 
-module Alexa
+module AlexaTalker
   class Response
     module Directive
     end

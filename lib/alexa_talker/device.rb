@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Alexa
+module AlexaTalker
   class Device
     attr_reader :id
     attr_reader :interfaces

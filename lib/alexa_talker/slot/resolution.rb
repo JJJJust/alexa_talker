@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Alexa
+module AlexaTalker
   class Slot
     class Resolution
       attr_reader :authority

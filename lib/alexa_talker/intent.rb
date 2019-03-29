@@ -2,7 +2,7 @@
 
 require_relative 'slot'
 
-module Alexa
+module AlexaTalker
   class Intent
     attr_accessor :name
     attr_accessor :confirmation_status
@@ -33,7 +33,7 @@ module Alexa
 
       result = []
       hash.each do |_k, v|
-        result << Alexa::Slot.new(v)
+        result << AlexaTalker::Slot.new(v)
       end
       result
     end

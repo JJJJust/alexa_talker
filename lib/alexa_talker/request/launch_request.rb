@@ -3,14 +3,14 @@
 require_relative '../request'
 require_relative '../session'
 
-module Alexa
+module AlexaTalker
   class Request
-    class LaunchRequest < Alexa::Request
+    class LaunchRequest < AlexaTalker::Request
       attr_reader :session
 
       def initialize(hash)
         super
-        @session = Alexa::Session.new(hash[:session])
+        @session = AlexaTalker::Session.new(hash[:session])
       end
     end
   end

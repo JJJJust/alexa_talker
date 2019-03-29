@@ -5,7 +5,7 @@ require 'openssl'
 require 'base64'
 require 'addressable'
 
-module Alexa
+module AlexaTalker
   class Request
     class Validator
       attr_reader :request
