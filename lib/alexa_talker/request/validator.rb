@@ -11,13 +11,13 @@ module AlexaTalker
       attr_reader :request
       attr_reader :certificate_url
       attr_reader :certificate
+      attr_reader :certificate_chain_file
       attr_reader :signature
       attr_reader :received
       attr_reader :timestamp_tolerance
 
-      def initialize(request, certificate_url: nil, certificate: nil,
-                     signature: nil, received: Time.now,
-                     timestamp_tolerance: 120)
+      def initialize(request, certificate_url: nil, signature: nil,
+                     received: Time.now, timestamp_tolerance: 120)
         if certificate
           raise ArgumentError unless certificate
                                        .is_a?(OpenSSL::X509::Certificate)
@@ -25,8 +25,7 @@ module AlexaTalker
 
         @request = request
         @received = received
-        @certificate_url = Addressable::URI.parse(certificate_url).normalize!
-        @certificate = certificate
+        @certificate_url = Addressable::URI.parse(certificate_url)&.normalize!
         @timestamp_tolerance = timestamp_tolerance
         @signature = signature
       end
@@ -50,7 +49,10 @@ module AlexaTalker
       end
 
       def certificate_valid?
-        @certificate ||= download_certificate
+        download_cert_chain! unless @certificate_chain_file
+
+        @certificate = OpenSSL::X509::Certificate
+                         .new(@certificate_chain_file.open)
 
         certificate_unexpired?
         certificate_subject_valid?
@@ -95,17 +97,15 @@ module AlexaTalker
         true
       end
 
-      def download_certificate(overwrite: false)
-        raise StandardError if @certificate && overwrite == false
+      def download_cert_chain!
         raise ArgumentError unless @certificate_url
 
         certificate_url_valid?
-        certificate = nil
-        Net::HTTP.start(@certificate_url.host) do |http|
-          resp = http.get(@certificate_url.path)
-          certificate = OpenSSL::X509::Certificate.new(resp.body)
-        end
-        certificate
+        chain = Net::HTTP.get(@certificate_url)
+        @certificate_chain_file = Tempfile.new
+        @certificate_chain_file.write(chain)
+        @certificate_chain_file.close
+        nil
       end
 
       private
@@ -127,6 +127,7 @@ module AlexaTalker
       def certificate_chain_trusted?
         cert_store = OpenSSL::X509::Store.new
         cert_store.set_default_paths
+        cert_store.add_file(@certificate_chain_file.path)
 
         unless cert_store.verify(@certificate)
           raise StandardError, 'Invalid certificate chain'
