@@ -25,8 +25,9 @@ module AlexaTalker
         raise ArgumentError, "'type' must be :ssml or :text"
       end
 
+      hash[:type] = type_to_response
       hash.delete(:output)
-      hash[:playBehavior] = hash.delete(:playback_behavior)
+      hash[:playBehavior] = hash.delete(:playbehavior)
       hash
     end
 
@@ -58,6 +59,17 @@ module AlexaTalker
         { text: output }
       else
         {}
+      end
+    end
+
+    def type_to_response
+      case type
+      when :ssml
+        "SSML"
+      when :text
+        "PlainText"
+      else
+        nil
       end
     end
 
