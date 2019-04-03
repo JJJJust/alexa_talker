@@ -8,8 +8,13 @@ module AlexaTalker
 
     def initialize(hash)
       @id = hash[:sessionId]
+      @new = hash[:new]
       @attributes = hash[:attributes]
       @application_id = hash[:application][:applicationId]
+    end
+
+    def new?
+      @new
     end
   end
 end
