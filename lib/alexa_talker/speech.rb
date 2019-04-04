@@ -65,9 +65,9 @@ module AlexaTalker
     def type_to_response
       case type
       when :ssml
-        "SSML"
+        'SSML'
       when :text
-        "PlainText"
+        'PlainText'
       else
         nil
       end

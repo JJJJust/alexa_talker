@@ -29,7 +29,6 @@ module AlexaTalker
           end
         end
       end
-
     end
   end
 end

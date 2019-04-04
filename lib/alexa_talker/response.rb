@@ -57,7 +57,7 @@ module AlexaTalker
     #                   response: response_objects_to_hash }.compact)
     # end
 
-    def as_json(**args)
+    def as_json(**_args)
       { version: version, sessionAttributes: session&.attributes,
         response: response_objects_to_hash }.compact
     end
