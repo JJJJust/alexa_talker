@@ -51,10 +51,15 @@ module AlexaTalker
       @directives = input
     end
 
-    def to_json
-      JSON.generate({ version: version,
-                      sessionAttributes: session&.attributes,
-                      response: response_objects_to_hash }.compact)
+    # def to_json
+    #   JSON.generate({ version: version,
+    #                   sessionAttributes: session&.attributes,
+    #                   response: response_objects_to_hash }.compact)
+    # end
+
+    def as_json(**args)
+      { version: version, sessionAttributes: session&.attributes,
+        response: response_objects_to_hash }.compact
     end
 
     private
