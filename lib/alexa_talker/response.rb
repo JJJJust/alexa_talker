@@ -61,9 +61,15 @@ module AlexaTalker
 
     def response_objects_to_hash
       { outputSpeech: speech_output&.to_response_h, card: card&.to_response_h,
-        reprompt: speech_reprompt&.to_response_h,
+        reprompt: reprompt_to_hash,
         shouldEndSession: complete_session,
         directives: directives_to_response_h }.compact
+    end
+
+    def reprompt_to_hash
+      return nil if speech_reprompt.nil?
+
+      { outputSpeech: speech_reprompt.to_response_h }.compact
     end
 
     def directives_to_response_h
